@@ -99,13 +99,13 @@ type KeyValue[K comparable, V any] struct {
 
 // Return a slice of KeyValue pairs by sorting the values from the specified map
 // The value type has to be one of the cmp.Ordered constraints (types that implement <)
-func MapSortedByValue[K comparable, V cmp.Ordered](m map[K]V, ascending bool) []KeyValue[K, V] {
+func MapSortedByValue[K comparable, V cmp.Ordered](m map[K]V, order SortOrder) []KeyValue[K, V] {
 	result := make([]KeyValue[K, V], 0, len(m))
 	for k, v := range m {
 		result = append(result, KeyValue[K, V]{Key: k, Value: v})
 	}
 
-	if ascending {
+	if order {
 		sort.Slice(result, func(i int, j int) bool {
 			return result[i].Value < result[j].Value
 		})
@@ -135,13 +135,13 @@ func MapSortedByAnyValue[K comparable, V any](m map[K]V,
 
 // Return a slice of KeyValue pairs by sorting the keys from the specified map
 // The value type has to be one of the cmp.Ordered constraints (types that implement <)
-func MapSortedByKeys[K cmp.Ordered, V any](m map[K]V, ascending bool) []KeyValue[K, V] {
+func MapSortedByKeys[K cmp.Ordered, V any](m map[K]V, order SortOrder) []KeyValue[K, V] {
 	result := make([]KeyValue[K, V], 0, len(m))
 	for k, v := range m {
 		result = append(result, KeyValue[K, V]{Key: k, Value: v})
 	}
 
-	if ascending {
+	if order {
 		sort.Slice(result, func(i int, j int) bool {
 			return result[i].Key < result[j].Key
 		})

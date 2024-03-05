@@ -83,11 +83,11 @@ func TestMapSortedByValue(t *testing.T) {
 		{Key: "d", Value: 4},
 	}
 
-	sorted := collection.MapSortedByValue(a, true)
+	sorted := collection.MapSortedByValue(a, collection.Ascending)
 	assert.Equal(t, expected, sorted)
 
 	slices.Reverse(expected)
-	sorted = collection.MapSortedByValue(a, false)
+	sorted = collection.MapSortedByValue(a, collection.Descending)
 	assert.Equal(t, expected, sorted)
 }
 
@@ -116,10 +116,10 @@ func TestMapSortedByKeys(t *testing.T) {
 		{Key: "d", Value: 4},
 	}
 
-	sorted := collection.MapSortedByKeys(a, true)
+	sorted := collection.MapSortedByKeys(a, collection.Ascending)
 	assert.Equal(t, expected, sorted)
 
 	slices.Reverse(expected)
-	sorted = collection.MapSortedByKeys(a, false)
+	sorted = collection.MapSortedByKeys(a, collection.Descending)
 	assert.Equal(t, expected, sorted)
 }
