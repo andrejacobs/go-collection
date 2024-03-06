@@ -48,7 +48,9 @@ check-formatting:
 check-lint:
 	@echo "Linting code"
 	go vet ./...
+ifneq (${CI}, true)
 	golangci-lint run
+endif
 
 # Check code quality
 .PHONY: check
