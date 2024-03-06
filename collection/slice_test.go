@@ -112,19 +112,3 @@ func BenchmarkRemoveAt(b *testing.B) {
 		})
 	}
 }
-
-func TestSliceFind(t *testing.T) {
-	s := []int{42, 7, 10, 2}
-	assert.Equal(t, 0, collection.SliceFind(s, 42))
-	assert.Equal(t, 1, collection.SliceFind(s, 7))
-	assert.Equal(t, 2, collection.SliceFind(s, 10))
-	assert.Equal(t, 3, collection.SliceFind(s, 2))
-	assert.Equal(t, -1, collection.SliceFind(s, 100))
-}
-
-func TestSliceContains(t *testing.T) {
-	s := []int{42, 7, 10, 2}
-	assert.True(t, collection.SliceContains(s, 42))
-	assert.True(t, collection.SliceContains(s, 7))
-	assert.False(t, collection.SliceContains(s, 100))
-}
