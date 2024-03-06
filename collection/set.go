@@ -21,7 +21,7 @@ func NewSetWithCapacity[T comparable](capacity int) Set[T] {
 	}
 }
 
-// Create a new set that contains only the unique items from the specified slice.
+// Create a new set that contains only the unique items from a number of slices.
 func NewSetFrom[T comparable](args ...[]T) Set[T] {
 	capacity := 0
 	for _, arg := range args {

@@ -100,7 +100,7 @@ func TestMapSortedByAnyValue(t *testing.T) {
 		{Key: "d", Value: 4},
 	}
 
-	sorted := collection.MapSortedByAnyValue(a,
+	sorted := collection.MapSortedByValueFunc(a,
 		func(lhs int, rhs int) bool {
 			return lhs < rhs
 		})

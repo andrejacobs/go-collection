@@ -5,3 +5,4 @@
 -   [] Add github actions to run unit tests etc.
 -   [] Fix the linting issues (documentations)
 -   [] Add a doc.go for package level docs
+-   [] Add a ContainsSlice to set that will return true if all items in the slice is contained in the set.

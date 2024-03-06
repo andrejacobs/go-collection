@@ -7,6 +7,8 @@ import (
 
 // See https://en.wikipedia.org/wiki/Set_(mathematics) for set theory.
 
+//FUTURE-TODO: Keep an eye out on changes made to golang.org/x/exp/maps. They now have a Keys method etc.
+
 // Return a new map that is the union of a and b that will contain all of the keys
 // from both a and b. If b has the same key as a, then the value of a will be used.
 func MapUnion[K comparable, V any](a map[K]V, b map[K]V) map[K]V {
@@ -118,8 +120,8 @@ func MapSortedByValue[K comparable, V cmp.Ordered](m map[K]V, order SortOrder) [
 	return result
 }
 
-// Return a slice of KeyValue pairs by sorting the values from the specified map using the len function provided.
-func MapSortedByAnyValue[K comparable, V any](m map[K]V,
+// Return a slice of KeyValue pairs by sorting the values from the specified map using the less function provided.
+func MapSortedByValueFunc[K comparable, V any](m map[K]V,
 	less func(lhs V, rhs V) bool) []KeyValue[K, V] {
 	result := make([]KeyValue[K, V], 0, len(m))
 	for k, v := range m {
