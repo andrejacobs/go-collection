@@ -1,4 +1,3 @@
-// collection provides commonly used collection data structures and algorithms
 package collection
 
 // Set contains a collection of unique items.

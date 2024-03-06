@@ -1,2 +1,4 @@
 # go-collection
-Helper code for working with data structures and algorithms relating to collections of things
+
+Package collection provides commonly used collection data structures and algorithms that are
+not currently in the Go standard libraries.

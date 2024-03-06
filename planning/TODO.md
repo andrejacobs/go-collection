@@ -3,6 +3,7 @@
 -   [] Review all the code before being happy to publish a v1
 -   [] Add a CONTRIBUTING.md. Need to make a template one for small repos like this.
 -   [x] Add github actions to run unit tests etc.
--   [] Fix the linting issues (documentations)
--   [] Add a doc.go for package level docs
+-   [x] Fix the linting issues (documentations)
+-   [x] Add a doc.go for package level docs
 -   [] Add a ContainsSlice to set that will return true if all items in the slice is contained in the set.
+-   [] Review godoc and improve where needed
