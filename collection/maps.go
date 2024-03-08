@@ -93,12 +93,6 @@ func MapSymmetricDifference[K comparable, V any](a map[K]V, b map[K]V) map[K]V {
 	return c
 }
 
-// KeyValue is a tuple of a Key and Value pair.
-type KeyValue[K comparable, V any] struct {
-	Key   K
-	Value V
-}
-
 // Return a slice of KeyValue pairs by sorting the values from the specified map
 // The value type has to be one of the cmp.Ordered constraints (types that implement <).
 func MapSortedByValue[K comparable, V cmp.Ordered](m map[K]V, order SortOrder) []KeyValue[K, V] {
