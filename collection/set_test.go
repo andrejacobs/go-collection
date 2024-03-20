@@ -114,6 +114,12 @@ func TestSymmetricDifference(t *testing.T) {
 	assert.True(t, c.Contains(6))
 }
 
+func TestSetContainsSlice(t *testing.T) {
+	s := collection.NewSetFrom([]int{1, 3, 5, 42})
+	assert.True(t, s.ContainsSlice([]int{1, 3, 5, 42}))
+	assert.False(t, s.ContainsSlice([]int{1, 3, 47}))
+}
+
 func BenchmarkSet(b *testing.B) {
 	const iterations = 10000
 

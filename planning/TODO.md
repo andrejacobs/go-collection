@@ -5,5 +5,7 @@
 -   [x] Add github actions to run unit tests etc.
 -   [x] Fix the linting issues (documentations)
 -   [x] Add a doc.go for package level docs
--   [] Add a ContainsSlice to set that will return true if all items in the slice is contained in the set.
+-   [x] Add a ContainsSlice to set that will return true if all items in the slice is contained in the set.
 -   [] Review godoc and improve where needed
+    -   [] Idiomatic docs.
+-   [] Write the README with code examples.

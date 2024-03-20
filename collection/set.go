@@ -89,6 +89,17 @@ func (s Set[T]) Contains(item T) bool {
 	return ok
 }
 
+// ContainsSlice returns true if all items in the slice is present in the set.
+func (s Set[T]) ContainsSlice(items []T) bool {
+	for _, item := range items {
+		_, ok := s.items[item]
+		if !ok {
+			return false
+		}
+	}
+	return true
+}
+
 // Return a new set that is the union of this set and another.
 func (a Set[T]) Union(b Set[T]) Set[T] {
 	c := Set[T]{
