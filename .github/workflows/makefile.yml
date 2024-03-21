@@ -32,5 +32,12 @@ jobs:
               with:
                   version: v1.56.2
 
+            - name: Checking copyright and license is applied
+              run: |
+                  docker run
+                  -v $(pwd):/wrk -w /wrk
+                  ghcr.io/google/addlicense
+                  -check -c "Andre Jacobs" -l mit -ignore '.github/**' -ignore 'build/**' ./
+
             - name: Run unit-tests
               run: make test
