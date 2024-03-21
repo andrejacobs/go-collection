@@ -9,3 +9,8 @@
 -   [] Review godoc and improve where needed
     -   [] Idiomatic docs.
 -   [] Write the README with code examples.
+-   [] Add a check on github to ensure code has the license.
+-   [] Document local machine setup, deps needed.
+    -   [] make check-lint: golangci-lint, addlicense
+
+## Done
