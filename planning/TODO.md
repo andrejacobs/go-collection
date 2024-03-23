@@ -3,7 +3,7 @@
 -   [] Review godoc and improve where needed
     -   [] Idiomatic docs.
 -   [] Write the README with code examples.
--   [] Add a check on github to ensure code has the license.
+-   [x] Add a check on github to ensure code has the license.
     -   [] Need to think about the copyright notice being added, atm it is "Andre Jacobs" but what about contributors?
 -   [] Document local machine setup, deps needed.
     -   [] make check-lint: golangci-lint, addlicense
