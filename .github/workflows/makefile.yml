@@ -33,7 +33,7 @@ jobs:
                   version: v1.56.2
 
             - name: Checking copyright and license is applied
-              run: |
+              run: >-
                   docker run
                   -v $(pwd):/wrk -w /wrk
                   ghcr.io/google/addlicense
