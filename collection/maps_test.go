@@ -20,6 +20,7 @@
 package collection_test
 
 import (
+	"encoding/hex"
 	"fmt"
 	"slices"
 	"testing"
@@ -141,4 +142,23 @@ func TestMapSortedByKeys(t *testing.T) {
 	slices.Reverse(expected)
 	sorted = collection.MapSortedByKeys(a, collection.Descending)
 	assert.Equal(t, expected, sorted)
+}
+
+func TestMapSortedByKeysFunc(t *testing.T) {
+	a := make(map[[2]byte]string)
+	a[[2]byte{0xAB, 0xCD}] = "abcd"
+	a[[2]byte{0xFE, 0xEF}] = "feef"
+
+	kv := collection.MapSortedByKeysFunc(a, func(l, r [2]byte) bool {
+		ls := hex.EncodeToString(l[:])
+		rs := hex.EncodeToString(r[:])
+		return ls < rs
+	})
+
+	expected := []collection.KeyValue[[2]byte, string]{
+		{Key: [2]byte{0xAB, 0xCD}, Value: "abcd"},
+		{Key: [2]byte{0xFE, 0xEF}, Value: "feef"},
+	}
+
+	assert.Equal(t, expected, kv)
 }
