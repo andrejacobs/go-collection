@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Andre Jacobs
+# Copyright (c) 2025 Andre Jacobs
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -20,9 +20,34 @@
 # Linting configuration for golangci-lint
 # See https://golangci-lint.run/usage/configuration/ for details
 
+version: "2"
+run:
+    tests: false
 linters:
     enable:
-        - gosec
         - godot
+        - gosec
         - misspell
-        - stylecheck
+        - staticcheck
+    # settings:
+    #     gosec:
+    #         excludes:
+    #             - G115 # Potential integer overflow when converting between integer types
+    exclusions:
+        generated: lax
+        presets:
+            - comments
+            - common-false-positives
+            - legacy
+            - std-error-handling
+        paths:
+            - third_party$
+            - builtin$
+            - examples$
+formatters:
+    exclusions:
+        generated: lax
+        paths:
+            - third_party$
+            - builtin$
+            - examples$
